@@ -1,0 +1,62 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    getUser(userId: ID!): User
+    getUserIdByEmail(userEmail: String!): ID
+
+    getAllTasksByUser(userId: ID!): [Task]
+}
+
+type Mutation {
+    logIn(logInInput: LogInInput!): String
+    signUp(userInput: UserInput!): String
+
+    addUser(userInput: UserInput!): User
+    updateUser(userInput: UserInput!, userId: ID!): User
+    deleteUser(userId: ID!): Boolean
+
+    addTask(taskInput: TaskInput!, userId: ID!): Task
+    updateTask(taskInput: TaskInput!, taskId: ID!, userId: ID!): Task
+    deleteTask(taskId: ID!, userId: ID!): Boolean
+}
+
+type User {
+    id: ID!
+    email: String!
+    roles: [Role!]!
+}
+
+type Task {
+    id: ID!
+    title: String!
+    description: String!
+}
+
+type Role {
+    id: ID!
+    rolePosition: RolePosition!
+}
+
+enum RolePosition {
+    CLIENT
+    ADMIN
+    CEO
+}
+
+input LogInInput {
+    email: String!
+    password: String!
+}
+
+input UserInput {
+    email: String!
+    password: String!
+}
+
+input TaskInput {
+    title: String!
+    description: String!
+}
