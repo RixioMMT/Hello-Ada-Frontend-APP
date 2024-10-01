@@ -35,7 +35,6 @@ function RegisterPage() {
         localStorage.removeItem('userId');
         localStorage.removeItem('taskId');
         try {
-            // Perform registration
             await register({
                 variables: { userInput: { email, password } },
             });

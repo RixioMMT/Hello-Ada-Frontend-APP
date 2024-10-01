@@ -38,7 +38,6 @@ function EditTask() {
     });
 
     useEffect(() => {
-        // Fetch user ID from local storage
         const storedUserId = localStorage.getItem('userId');
         if (storedUserId) {
             setUserId(storedUserId);
@@ -82,7 +81,6 @@ function EditTask() {
     };
 
     const handleLogout = () => {
-        // Clear items from local storage
         localStorage.removeItem('userId');
         localStorage.removeItem('token');
         localStorage.removeItem('taskId');

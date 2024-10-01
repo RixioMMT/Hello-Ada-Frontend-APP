@@ -22,7 +22,6 @@ function TaskList() {
     const [userId, setUserId] = useState(null);
     const navigate = useNavigate();
 
-    // Use refetch function from useQuery
     const { loading, error, data, refetch } = useQuery(GET_TASKS_BY_USER, {
         variables: { userId },
         skip: !userId,

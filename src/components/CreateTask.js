@@ -51,7 +51,6 @@ function CreateTask() {
     };
 
     const handleLogout = () => {
-        // Clear items from local storage
         localStorage.removeItem('userId');
         localStorage.removeItem('token');
         localStorage.removeItem('taskId');
